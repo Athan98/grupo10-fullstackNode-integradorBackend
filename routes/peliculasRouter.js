@@ -5,7 +5,7 @@ const express = require("express");
 const router = express.Router();
 
 //Desestructuramos para traer las funciones del controlador de peliculas
-const { listarPeliculas, traerPelicula } = require("../controllers/peliculasController.js")
+const { listarPeliculas, traerPelicula, crearPelicula, actualizarPelicula, eliminarPelicula } = require("../controllers/peliculasController.js")
 
 //Traer todas las peliculas
 router.get("/", listarPeliculas);
@@ -14,19 +14,13 @@ router.get("/", listarPeliculas);
 router.get("/:id", traerPelicula);
 
 //Crear nueva pelicula
-router.post("/", (req, res) => {
-
-});
+router.post("/", crearPelicula);
 
 //Actualizar pelicula por ID
-router.put("/:id", (req, res) => {
-
-});
+router.put("/:id", actualizarPelicula);
 
 //Eliminar pelicula por ID
-router.delete("/:id", (req, res) => {
-
-});
+router.delete("/:id", eliminarPelicula);
 
 //Exportamos router para utilizarlo en donde necesitemos
 module.exports = router;
