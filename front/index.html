@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PELICULAS</title>
+    <link rel="stylesheet" href="/front/index.css">
+   <!-- Google Fonts -->
+   <link rel="preconnect" href="https://fonts.googleapis.com">
+   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main>
+    <header>
+        <div class="header-up">
+            <div class="logo"> <a href="#"><img src="./img/LETRASSHEADER.png" class="responsive-image"
+                alt="logo"></a>
+        
+        </div>
+        </div>
+
+        <div class="h1top">
+
+            <h1>PELICULAS</h1>
+        </div>
+    </header>
+
+   <!-- ----------------------------------------------------- -->
+   <div class="img-background">
+    <img src="./img/FONDO.jpg" alt="fondo-body">
+    </div>
+
+    <section class="add-peliculas">
+      <form class="form-peliculas"  id="form-crear-posteo">
+        <div class="form-column">
+            <div class="form-group">
+                <label for="nombre">Título de la Película</label>
+                <input type="text" class="form-control" id="titulo" placeholder="Ingrese el nombre de la película" required>
+            </div>
+            <div class="form-group">
+                <label for="género">Género</label>
+                <input type="text" class="form-control" id="genero" placeholder="Ingrese el género" required>
+            </div>
+            <div class="form-group">
+                <label for="director">Director</label>
+                <input type="text" class="form-control" id="director" placeholder="Ingrese el director" required>
+            </div>
+        </div>
+        <div class="form-column">
+            <div class="form-group">
+                <label for="fecha">Fecha de Estreno</label>
+                <input type="date" class="form-control" id="fecha" placeholder="Ingrese la fecha de estreno" required>
+            </div>
+            <div class="form-group">
+                <label for="duración">Duración (min.)</label>
+                <input type="number" class="form-control" id="duracion" placeholder="Ingrese la duración" required>
+            </div>
+            <div class="form-group">
+                <label for="mensaje">Descripción</label>
+                <textarea class="form-control" id="descripcion" rows="7" placeholder="Escriba la descripción aquí" required></textarea>
+            </div>
+        </div>
+        <div class="btncontact">
+            <button type="submit" class="btn btn-primary">Enviar</button>
+        </div>
+    </form>
+    
+</section>
+
+
+<table class="tabla-peliculas">
+  <thead>
+    <tr>
+      <th>Pelicula</th>
+      <th>Género</th>
+      <th>Director</th>
+      <th>Fecha de Estreno</th>
+      <th>Duración (min)</th>
+      <th>Descripción</th>
+    </tr>
+  </thead>
+<tbody id="body-tabla-posteos">
+
+</tbody>
+
+
+
+</table>
+
+<!-- cargar axios desde el CDN -->
+<!-- https://axios-http.com/es/docs/intro -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="./index.js"></script>
+
+
+
+
+<!-- 4 y 2 -->
+
+
+<!-- <section class="add-peliculas">
+  <form class="form-peliculas">
+      <div class="form-column">
+          <div class="form-group">
+              <label for="nombre">Título de la Película</label>
+              <input type="text" class="form-control" id="nombre" placeholder="Ingrese el nombre de la película" required>
+          </div>
+          <div class="form-group">
+              <label for="género">Género</label>
+              <input type="text" class="form-control" id="género" placeholder="Ingrese el género" required>
+          </div>
+          <div class="form-group">
+              <label for="director">Director</label>
+              <input type="text" class="form-control" id="director" placeholder="Ingrese el director" required>
+          </div>
+          <div class="form-group">
+              <label for="fecha">Fecha de Estreno</label>
+              <input type="date" class="form-control" id="fecha" placeholder="Ingrese la fecha de estreno" required>
+          </div>
+      </div>
+      <div class="form-column">
+          <div class="form-group">
+              <label for="duración">Duración (min.)</label>
+              <input type="number" class="form-control" id="duración" placeholder="Ingrese la duración" required>
+          </div>
+          <div class="form-group">
+              <label for="mensaje">Descripción</label>
+              <textarea class="form-control" id="mensaje" rows="5" placeholder="Escriba la descripción aquí" required></textarea>
+          </div>
+      </div>
+      <div class="btncontact">
+          <button type="submit" class="btn btn-primary">Enviar</button>
+      </div>
+  </form>
+</section> -->
+
+
+
+
+</main>
+</body>
+</html>
