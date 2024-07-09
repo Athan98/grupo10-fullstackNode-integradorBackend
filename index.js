@@ -34,7 +34,7 @@ const conexiondb = async () => {
 //Configuraciones del index.js para mandar al usuario a peliculasRouter
 app.use("/peliculas", peliculasRouter);
 
-//Levantamos el servidor
+//Levanta el servidor y muestra mensaje si está OK
 app.listen(port, () => {
     conexiondb()
     console.log(`Server OK en el puerto ${port}`);
