@@ -78,7 +78,7 @@ header {
 
 .img-background img {
     width: 100%;
-   
+
     object-fit: cover;
     position: absolute;
     top: 0;
