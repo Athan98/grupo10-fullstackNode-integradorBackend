@@ -9,36 +9,38 @@ const fetchPosteos = async ()=>{
     try {
         const respuesta = await axios.get (`http://localhost:3030/peliculas`)
         console.log(respuesta.data);
-        const posteos = respuesta.data
+        const peliculas = respuesta.data
     
     /*     limpiar la tabla antes de agregar los nuevos datos */
     bodyTablaPosteos.innerHTML = ""
     
     // interar sobre los datos y agregar los nuevos datos
-    posteos.forEach(posteo=>{
+    peliculas.forEach(pelicula=>{
     /* crear una nueva fila */
     const fila = document.createElement("tr")
     // crear celdas para el titulo , contenido y acciones
-    const celdaTitulo = document.createElement ("td")
-    const celdaContenido = document.createElement ("td")
+    const celdaPelicula = document.createElement ("td")
+    const celdaDescripcion = document.createElement ("td")
+    const celdaGenero = document.createElement ("td")
+    const celdaDuracion = document.createElement ("td")
+    const celdaDirector = document.createElement ("td")
+    const celdaFecha = document.createElement ("td")
     const celdaAcciones = document.createElement ("td")
-    
-
-
 
     // ------------ asignar el contenido de las celdas --------------
-    celdaTitulo.textContent = posteo.titulo
-    celdaContenido.textContent = posteo.contenido
-    
-
-
-
+    celdaPelicula.textContent = pelicula.titulo
+    celdaDescripcion.textContent = pelicula.descripcion
+    celdaGenero.textContent = pelicula.genero
+    celdaDuracion.textContent = pelicula.duracion
+    celdaDirector.textContent = pelicula.director
+    celdaFecha.textContent = pelicula.fecha
+    celdaAcciones.textContent = pelicula.acciones
 
     // crear boton de eliminar
     const botonEliminar = document.createElement("button")
     botonEliminar.textContent = "Eliminar"
     botonEliminar.addEventListener("click", ()=>{
-        borrarPosteo(posteo.id)
+        borrarPelicula(pelicula.id)
     })
     
     
@@ -47,7 +49,7 @@ const fetchPosteos = async ()=>{
     botonEditar.textContent = "Editar"
     botonEditar.addEventListener("click",()=>{
     //redirigir a la pagina de edicion
-    window.location.href= `edit.html?id=${posteo.id}`
+    window.location.href= `edit.html?id=${pelicula.id}`
     })
 
 
@@ -60,9 +62,16 @@ const fetchPosteos = async ()=>{
     celdaAcciones.appendChild(botonEditar)
     
     // agregar las celdas a la fila
-    fila.appendChild(celdaTitulo)
-    fila.appendChild(celdaContenido)
+    fila.appendChild(celdaPelicula)
+    fila.appendChild(celdaDescripcion)
+    fila.appendChild(celdaGenero)
+    fila.appendChild(celdaDuracion)
+    fila.appendChild(celdaDirector)
+    fila.appendChild(celdaFecha)
     fila.appendChild(celdaAcciones)
+
+
+
     // agregar la fila al cuerpo de la tabla
     bodyTablaPosteos.appendChild(fila)
     })
@@ -72,7 +81,7 @@ const fetchPosteos = async ()=>{
     }
     }
 
-
+//-------------------------------------------------------------------
     
     // funcnion para borrar un posteo
     
@@ -81,7 +90,7 @@ const fetchPosteos = async ()=>{
             await axios.delete (`http://localhost:3030/peliculas/${id}`);
             fetchPosteos()
         } catch (error) {
-            console.error("error para borrar posteos :",error)
+            console.error("error para borrar pelicula :",error)
         }
         }
 
@@ -91,7 +100,7 @@ const fetchPosteos = async ()=>{
                 titulo:document.querySelector("#titulo").value ,
                 genero: document.querySelector("#genero").value ,
                 director: document.querySelector("#director").value ,
-                fechadeestreno: document.querySelector("#fecha").value ,
+                fecha: document.querySelector("#fecha").value ,
                 duracion: document.querySelector("#duracion").value ,
                 descripcion: document.querySelector("#descripcion").value ,
             };
