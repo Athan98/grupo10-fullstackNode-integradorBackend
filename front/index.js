@@ -16,6 +16,7 @@ const fetchPosteos = async ()=>{
     
     // interar sobre los datos y agregar los nuevos datos
     peliculas.forEach(pelicula=>{
+        console.log('Datos de la película:', pelicula); // Verificar todos los datos de la película
     /* crear una nueva fila */
     const fila = document.createElement("tr")
     // crear celdas para el titulo , contenido y acciones
@@ -33,9 +34,18 @@ const fetchPosteos = async ()=>{
     celdaGenero.textContent = pelicula.genero
     celdaDuracion.textContent = pelicula.duracion
     celdaDirector.textContent = pelicula.director
-    celdaFecha.textContent = pelicula.fecha
+    if (pelicula.fecha_estreno) {
+                    const fechaFormateada = new Date(pelicula.fecha_estreno).toLocaleDateString('en-US');
+                    celdaFecha.textContent = fechaFormateada !== "Invalid Date" ? fechaFormateada : pelicula.fecha_estreno;
+                } else {
+                    celdaFecha.textContent = "Fecha no disponible";
+                }
     celdaAcciones.textContent = pelicula.acciones
 
+
+
+
+    
     // crear boton de eliminar
     const botonEliminar = document.createElement("button")
     botonEliminar.textContent = "Eliminar"
@@ -103,6 +113,7 @@ const fetchPosteos = async ()=>{
                 fecha: document.querySelector("#fecha").value ,
                 duracion: document.querySelector("#duracion").value ,
                 descripcion: document.querySelector("#descripcion").value ,
+                acciones: document.querySelector("#acciones").value ,
             };
             
             try {
