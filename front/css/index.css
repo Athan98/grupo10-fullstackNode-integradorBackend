@@ -31,7 +31,7 @@ header {
     width: 100%;
     height: 300px; /* Aquí defines la altura específica */
     background-color: rgb(20, 20, 20);
-    background-image: url('./img/FONDOHEADER.jpg'); /* Cambia esto por la ruta de tu imagen */
+    background-image: url('/front/img/FONDOHEADER.jpg'); /* Cambia esto por la ruta de tu imagen */
     background-size: cover; /* La imagen cubrirá todo el header */
     background-position: center; /* Centra la imagen en el header */
     background-repeat: no-repeat; /* Evita que la imagen se repita */
@@ -132,6 +132,7 @@ header {
     text-transform: uppercase;
     background-color: rgb(255, 255, 255);
     border-radius: 15px;
+    text-align: center;
 }
 .form-group label{
    /*  background-color: blanchedalmond; */
@@ -159,6 +160,11 @@ header {
     font-size: 14px;
     font-weight: 400;
 }
+
+#nuevo-descripcion {
+    resize: none; /* Deshabilita la capacidad de redimensionar el textarea */
+}
+
 
 
 /* ---------------------------------------------------------------- */
@@ -205,42 +211,36 @@ button[type="submit"]:hover {
 }
 
 /* ------------------------------------------------------------------ */
-
 .tabla-section {
     display: flex;
     justify-content: center;
     width: 100%;
-    
-  }
-  
-  .tabla-peliculas {
+}
+
+.tabla-peliculas {
     width: 80%; /* Ajusta el porcentaje según necesites */
     border-collapse: collapse; /* Opcional: para que no haya espacio entre las celdas */
     background-color: rgba(0, 0, 0, 0.756);
     border-radius: 10px;
-    
-  }
-  
-  
-  .tabla-peliculas td {
-    padding: 10px; 
-    text-align: center; /* Opcional: alinea el texto a la izquierda */
-   background-color: rgb(201, 184, 151);
-  }
-  
-  .tabla-peliculas th{
+}
+
+.tabla-peliculas td {
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(201, 184, 151);
+    word-wrap: break-word; /* Permite que las palabras se rompan y salten a la siguiente línea */
+    word-break: break-all; /* Rompe las palabras largas */
+}
+
+.tabla-peliculas th {
     padding: 20px;
-text-align: center;
-text-transform: uppercase;
-color: white;
-font-size: 16px; /* Tamaño de fuente en píxeles */
-font-weight: 300; 
-/* border-bottom: 1px solid black; */
-  }
-  
+    text-align: center;
+    text-transform: uppercase;
+    color: white;
+    font-size: 16px;
+    font-weight: 300;
+}
 
-
-  /* Ajusta el ancho de las columnas */
 .tabla-peliculas th:nth-child(1), 
 .tabla-peliculas td:nth-child(1) { width: 15%; }
 .tabla-peliculas th:nth-child(2), 
@@ -248,27 +248,40 @@ font-weight: 300;
 .tabla-peliculas th:nth-child(3), 
 .tabla-peliculas td:nth-child(3) { width: 7%; }
 .tabla-peliculas th:nth-child(4), 
-.tabla-peliculas td:nth-child(4) { width: 7%; }
+.tabla-peliculas td:nth-child(4) { width: 5%; }
 .tabla-peliculas th:nth-child(5), 
-.tabla-peliculas td:nth-child(5) { width: 15%; }
+.tabla-peliculas td:nth-child(5) { width: 20%; }
 .tabla-peliculas th:nth-child(6), 
 .tabla-peliculas td:nth-child(6) { width: 7%; }
 .tabla-peliculas th:nth-child(7), 
-.tabla-peliculas td:nth-child(7) { width: 15%; }
-
-
-
-
+.tabla-peliculas td:nth-child(7) { width: 13%; }
 
 tr {
-    border-top: 1px solid black; /* Muestra una línea horizontal en la parte superior de cada fila */
-    border-left: none;          /* Oculta el borde izquierdo */
-    border-right: none;         /* Oculta el borde derecho */
-    border-bottom: none;        /* Oculta el borde inferior */
+    border-top: 1px solid black;
+    border-left: none;
+    border-right: none;
+    border-bottom: none;
 }
 
-/* Si deseas que la primera fila no tenga una línea horizontal en la parte superior */
 tr:first-child {
     border-top: none;
 }
 
+/* --------------------------------------------------------- */
+
+.button-eliminar {
+    background-color: #673737;
+    color: #ffffff;
+    border: none;
+   padding: 7px;
+   margin-right: 3px;
+   border-radius: 3px;
+}
+
+.button-editar {
+    background-color: #415c79;
+    color: #ffffff;
+    border: none;
+    padding: 7px;
+    border-radius: 3px;
+}

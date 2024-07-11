@@ -44,12 +44,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Crear botones de eliminar y editar
                 const botonEliminar = document.createElement("button");
                 botonEliminar.textContent = "Eliminar";
+                botonEliminar.classList.add("button-eliminar"); // Agrega la clase CSS al botón
                 botonEliminar.addEventListener("click", () => {
                     borrarPelicula(pelicula.id);
                 });
 
                 const botonEditar = document.createElement("button");
                 botonEditar.textContent = "Editar";
+                botonEditar.classList.add("button-editar"); // Agrega la clase CSS al botón
                 botonEditar.addEventListener("click", () => {
                     window.location.href = `edit.html?id=${pelicula.id}`;
                 });
