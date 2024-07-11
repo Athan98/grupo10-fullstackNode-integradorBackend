@@ -79,7 +79,9 @@ Al descargar el proyecto, correr ***npm install*** en la consola desde la carpet
   }
 ~~~
 
+## LINK DEL DEPLOY
 
+[CARTELERA DE PELICULAS](https://athan98.github.io/cartelera-peliculas-front/)
 
 
 #### Contribuyentes en el proyecto:
