@@ -1,21 +1,21 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const bodyTablaPosteos = document.querySelector("#body-tabla-posteos");
-    const formCrearPosteo = document.querySelector("#form-crear-posteo");
+    const bodyTablaPeliculas = document.querySelector("#body-tabla-peliculas");
+    const formCrearPelicula = document.querySelector("#form-crear-pelicula");
 
     // Funcion para obtener los datos de la API usando Axios
-    const fetchPosteos = async () => {
+    const fetchPeliculas = async () => {
         try {
             const respuesta = await axios.get(`https://dev-user.alwaysdata.net/peliculas`);
             console.log(respuesta.data);
             const peliculas = respuesta.data;
 
             // Limpiar la tabla antes de agregar los nuevos datos
-            bodyTablaPosteos.innerHTML = "";
+            bodyTablaPeliculas.innerHTML = "";
 
             // Iterar sobre los datos y agregar los nuevos datos
             peliculas.forEach(pelicula => {
                 console.log('Datos de la película:', pelicula); // Verificar todos los datos de la película
-                
+
                 // Crear una nueva fila
                 const fila = document.createElement("tr");
 
@@ -70,7 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 fila.appendChild(celdaAcciones);
 
                 // Agregar la fila al cuerpo de la tabla
-                bodyTablaPosteos.appendChild(fila);
+                bodyTablaPeliculas.appendChild(fila);
             });
         } catch (error) {
             console.error("Error para cargar películas:", error);
@@ -81,16 +81,15 @@ document.addEventListener("DOMContentLoaded", () => {
     const borrarPelicula = async (id) => {
         try {
             await axios.delete(`https://dev-user.alwaysdata.net/peliculas/${id}`);
-            fetchPosteos();
+            fetchPeliculas();
         } catch (error) {
             console.error("Error al intentar eliminar la película:", error);
         }
     };
 
-    // Funcion para crear un posteo
-    formCrearPosteo.addEventListener("submit", async function(evento) {
+    formCrearPelicula.addEventListener("submit", async (evento) => {
         evento.preventDefault();
-        const nuevoPosteo = {
+        const nuevaPelicula = {
             titulo: document.querySelector("#nuevo-titulo").value,
             descripcion: document.querySelector("#nuevo-descripcion").value,
             genero: document.querySelector("#nuevo-genero").value,
@@ -100,14 +99,13 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         try {
-            await axios.post(`https://dev-user.alwaysdata.net/peliculas`, nuevoPosteo);
-            formCrearPosteo.reset();
-            fetchPosteos();
+            await axios.post(`https://dev-user.alwaysdata.net/peliculas`, nuevaPelicula);
+            formCrearPelicula.reset();
+            fetchPeliculas();
         } catch (error) {
             console.error("Error al crear película:", error);
         }
     });
 
-    // Llamar a la funcion para obtener y mostrar los posteos al cargar la pagina
-    fetchPosteos();
+    fetchPeliculas();
 });

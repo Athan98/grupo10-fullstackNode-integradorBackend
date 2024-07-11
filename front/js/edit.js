@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
 
     //Obtener el form y el boton de guardar
-    const formulario = document.querySelector("#form-editar-posteo");
+    const formulario = document.querySelector("#form-editar-pelicula");
     const botonGuardar = document.querySelector("#btnGuardar");
 
     //Obtener los parametros de la URL
