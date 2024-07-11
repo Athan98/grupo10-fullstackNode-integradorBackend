@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Funcion para obtener los datos de la API usando Axios
     const fetchPosteos = async () => {
         try {
-            const respuesta = await axios.get(`http://localhost:3030/peliculas`);
+            const respuesta = await axios.get(`https://dev-user.alwaysdata.net/peliculas`);
             console.log(respuesta.data);
             const peliculas = respuesta.data;
 
@@ -73,14 +73,14 @@ document.addEventListener("DOMContentLoaded", () => {
                 bodyTablaPosteos.appendChild(fila);
             });
         } catch (error) {
-            console.error("Error para cargar posteos:", error);
+            console.error("Error para cargar películas:", error);
         }
     };
 
     // Funcion para borrar una pelicula
     const borrarPelicula = async (id) => {
         try {
-            await axios.delete(`http://localhost:3030/peliculas/${id}`);
+            await axios.delete(`https://dev-user.alwaysdata.net/peliculas/${id}`);
             fetchPosteos();
         } catch (error) {
             console.error("Error al intentar eliminar la película:", error);
@@ -100,11 +100,11 @@ document.addEventListener("DOMContentLoaded", () => {
         };
 
         try {
-            await axios.post(`http://localhost:3030/peliculas`, nuevoPosteo);
+            await axios.post(`https://dev-user.alwaysdata.net/peliculas`, nuevoPosteo);
             formCrearPosteo.reset();
             fetchPosteos();
         } catch (error) {
-            console.error("Error al crear posteo:", error);
+            console.error("Error al crear película:", error);
         }
     });
 

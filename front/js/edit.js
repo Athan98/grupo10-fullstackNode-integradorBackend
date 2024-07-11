@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const fetchPelicula = async (id) => {
         try {
             //Guardamos la pelicula en res
-            const res = await axios.get(`http://localhost:3030/peliculas/${id}`);
+            const res = await axios.get(`https://dev-user.alwaysdata.net/peliculas/${id}`);
             const pelicula = res.data;
 
             //Llenamos los inputs con los datos de la pelicula obtenida
@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
 
         try {
-            await axios.put(`http://localhost:3030/peliculas/${idPelicula}`, peliculaActualizada);
+            await axios.put(`https://dev-user.alwaysdata.net/peliculas/${idPelicula}`, peliculaActualizada);
             alert("Película actualizada correctamente");
 
             //Redirigimos al index.html una vez se actualiza la pelicula

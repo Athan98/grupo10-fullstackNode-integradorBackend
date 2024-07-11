@@ -5,7 +5,7 @@ const express = require("express");
 const app = express();
 
 //Crear puerto
-const port = 3030;
+const port = process.env.PORT || 3030;
 
 //Requerimos y usamos CORS para habilitar ida y vuelta de informacion
 const cors = require("cors");
